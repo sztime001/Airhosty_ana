@@ -54,4 +54,15 @@ listing = listing.sort_values(by = ['Listing_ID','Checkin_Date'])
 property_info = listing.groupby(['Listing_ID', 'Full_Address']).agg({'Checkin_Date': 'min','Checkout_Date': 'max'})
 property_info = property_info.rename(columns = {'Checkin_Date':'Come_into_Market','Checkout_Date':'End_of_Sta'})
 
-#3. analisis of occupancy
+#3. analysis of occupancy
+#start of sta: come into market
+#end of sta:2018-3-31 
+listing1 = listing[(listing.Checkin_Date <= '2018-04-01')]
+data1 = listing1.groupby(['Listing_ID', 'Full_Address']).agg({'Checkin_Date':'min','Nights': 'sum'})
+data1 = data1.rename(columns = {'Checkin_Date':'Come_into_Market'})
+
+# calculate days bwtween start and end
+data1['Total_Nights'] =  [(datetime.datetime.strptime('2018-04-01', '%Y-%m-%d') - datetime.datetime.strptime(x, '%Y-%m-%d')).days for x in data1.Come_into_Market]
+data1['Occupancy'] = data1.Nights/data1.Total_Nights
+
+
