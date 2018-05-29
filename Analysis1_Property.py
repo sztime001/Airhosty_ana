@@ -68,7 +68,19 @@ data1['Occupancy'] = data1.Nights/data1.Total_Nights
 #start of sta: start of each year
 #end of sta: end of each year
 data_y = listing1.groupby(['Listing_ID', 'Full_Address','Checkout_Year']).agg({'Checkin_Date':'min','Nights': 'sum'})
-data_y = data1.rename(columns = {'Checkin_Date':'Come_into_Market'})
+data_y = data_y.rename(columns = {'Checkin_Date':'Start_of_Sta'})
+data_y['Total_Nights'] = 0
+for i in range(len(data_y.index)):
+    if data_y.index[i][2] == '2017':
+        data_y.Total_Nights[i] =  (datetime.datetime.strptime("2018-01-01", '%Y-%m-%d') - datetime.datetime.strptime(data_y.Start_of_Sta[i], '%Y-%m-%d')).days
+    elif data_y.index[i][2] == '2018':
+        data_y.Total_Nights[i] =  (datetime.datetime.strptime("2018-04-01", '%Y-%m-%d') - datetime.datetime.strptime(data_y.Start_of_Sta[i], '%Y-%m-%d')).days
+data_y['Occupancy'] = data_y.Nights/data_y.Total_Nights      
 
+#start of sta: start of each year
+#end of sta: end of each year
+data_m = listing1.groupby(['Listing_ID', 'Full_Address','Checkout_Year','Checkout_Month']).agg({'Checkin_Date':'min','Nights': 'sum'})
+data_m = data_m.rename(columns = {'Checkin_Date':'Start_of_Sta'})
+  
 
 
