@@ -1,6 +1,0 @@
-GIT INIT
-GIT STATUS
-GIT ADD new_file
-GIT COMMIT -m "illustration"
-GIT LOG
-GIT DIFF HEAD new_file

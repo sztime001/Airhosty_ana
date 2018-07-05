@@ -1,0 +1,11 @@
+//Host:www.airgms.com
+//Connection:keep-alive
+//User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+//Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+//Referer:https://www.airgms.com/app/chat.html?v=70905
+//Accept-Encoding:gzip, deflate, br
+//Accept-Language:en-AU,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+//Cookie:PHPSESSID=2888mv2cutk0gagoql2ev2f2q3; _ga=GA1.2.543889040.1526563146; _ym_uid=1526563147322998551; tzo=600; _gid=GA1.2.1540869501.1526993292
+//If-None-Match:W/"5afe9772-6707"
+//If-Modified-Since:Fri, 18 May 2018 09:05:54 GMT
+//Upgrade-Insecure-Requests:1
